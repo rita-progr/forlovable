@@ -1,0 +1,17 @@
+services:
+  frontend:
+    build:
+      context: ./glaspro-frontend
+    container_name: glaspro-frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./glaspro-frontend:/app
+    environment:
+      - VITE_APP_API_URL=${VITE_APP_API_URL}
+    networks:
+      - glaspro-net
+
+networks:
+  glaspro-net:
+    driver: bridge
